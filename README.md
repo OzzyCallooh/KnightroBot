@@ -2,18 +2,18 @@
 
 ![Knightro](img/Knightro.jpg)
 
-KnightroBot is a bot for the [Telegram](http://telegram.org/) chat platform, designed to be a utility for the [UCF Furs](http://ucffurs.org/) group. Written by [Ozzy Callooh](http://t.me/OzzyC), he bears no affiliation to [UCF](http://ucf.edu) itself.
+[KnightroBot](http://t.me/KnightroBot) is a bot for the [Telegram](http://telegram.org/) chat platform, designed to be a utility for the [UCF Furs](http://ucffurs.org/) group. Written by [Ozzy Callooh](http://t.me/OzzyC), he bears no affiliation to [UCF](http://ucf.edu) itself.
 
 ## Using the Bot
 
-KnightroBot provides a few utilities for campus information.
+[Click this link to message the bot!](http://t.me/KnightroBot) KnightroBot provides a few utilities for campus information.
 
 * **/start** - Shows welcome message
 * **/help** - Displays available commands
 * **/about** - Displays about information
 * **/garage** - Get the current status of each garage on campus
-* **/garage &gt;letter&lt;** - Get the current status of a specific garage
-* **/whereis &gt;location&lt;** - Search the campus directory for &gt;location&lt;
+* **/garage &lt;letter&gt;** - Get the current status of a specific garage
+* **/whereis &lt;location&gt;** - Search the campus directory for &lt;location&gt;
 
 ## Dependencies
 
