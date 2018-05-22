@@ -1,6 +1,6 @@
 # KnightroBot
 
-![Knightro/Knightro.jpg](img)
+![Knightro](img/Knightro.jpg)
 
 KnightroBot is a bot for the [Telegram](http://telegram.org/) chat platform, designed to be a utility for the [UCF Furs](http://ucffurs.org/) group. Written by [Ozzy Callooh](http://t.me/OzzyC), he bears no affiliation to [UCF](http://ucf.edu) itself.
 
@@ -12,8 +12,8 @@ KnightroBot provides a few utilities for campus information.
 * **/help** - Displays available commands
 * **/about** - Displays about information
 * **/garage** - Get the current status of each garage on campus
-* **/garage <g>** - Get the current status of a specific garage
-* **/whereis <loc>** - Search the campus directory for <loc>.
+* **/garage &gt;letter&lt;** - Get the current status of a specific garage
+* **/whereis &gt;locaction&lt;** - Search the campus directory for &gt;locaction&lt;
 
 ## Dependencies
 
@@ -26,7 +26,7 @@ KnightroBot is programmed in Python 3. He uses the following dependencies, which
 
 ## Configuration
 
-KnightroBot uses JSON configuration files, usually with a name like `*.config.json`. I use `dev.config.json` and `prod.config.json` for testing and production environments, respectively. The file [sample.config.json](sample.config.json) provides notes on each configuration parameter. Most notably, the Telegram bot token should be pasted in that file.
+KnightroBot uses [JSON](http://json.org) configuration files, usually with a name like `*.config.json` (`dev.config.json` and `prod.config.json` are good config file names for testing and production environments, respectively). The file [sample.config.json](sample.config.json) provides an example configuration file with notes on each parameter. Most notably, the Telegram bot token should be pasted in the configuration file.
 
 ## Running the Bot
 
