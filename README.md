@@ -13,7 +13,7 @@ KnightroBot provides a few utilities for campus information.
 * **/about** - Displays about information
 * **/garage** - Get the current status of each garage on campus
 * **/garage &gt;letter&lt;** - Get the current status of a specific garage
-* **/whereis &gt;locaction&lt;** - Search the campus directory for &gt;locaction&lt;
+* **/whereis &gt;location&lt;** - Search the campus directory for &gt;location&lt;
 
 ## Dependencies
 
