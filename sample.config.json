@@ -1,0 +1,70 @@
+{
+	"debug_mode__COMMENT__": "Logging level config",
+	"debug_mode": true,
+
+	"lock_file__COMMENT__": "An interprocess lock file to prevent multiple copies of the bot from running.",
+	"lock_file": "KnightroBot.lock",
+
+	"telegram": {
+		"username__COMMENT__": "Not used",
+		"username": "BabyKnightroBot",
+		"token__COMMENT__": "The Telegram bot token from the BotFather",
+		"token": ""
+	},
+
+	"privileges__COMMENT__": "A mapping of user privileges via user id. @userinfobot can tell you user IDs.",
+	"privileges": {
+		"default": {
+			"default": true,
+			"operator": false,
+			"owner": false,
+			"admin": false
+		},
+		"91741518": {
+			"__NOTE__": "Creator of KnightroBot, @OzzyC",
+			"operator": true,
+			"admin": true,
+			"owner": true
+		}
+	},
+
+	"database": {
+		"uri__COMMENT__": "The database URI to use with SQLAlchemy",
+		"uri": "sqlite:///test.db",
+
+		"trackModifications__COMMENT__": "Whether SQLAlchemy is instructed to track modifications.",
+		"trackModifications": "false"
+	},
+
+	"knightro": {
+		"start__COMMENT__": "Output text from /start command",
+		"start": "What's up? I'm Knightro!",
+
+		"about__COMMENT__": "Output text from /about command",
+		"about": "I am a Telegram bot made by @OzzyC for the [UCF Furs](http://ucffurs.org) group. Not associated with UCF. [More info](https://git.io/vheb8)",
+
+		"help__COMMENT__": "Output text from /help command",
+		"help": "Here's what I can do:\n/whereis <loc> - Search campus for a location\n/garage - How full are the garages now?",
+
+		"kill__COMMENT__": "Output text from /kill command",
+		"kill": "*dies*"
+	},
+
+	"parking": {
+		"url__COMMENT__": "URL from which garage info will be fetched",
+		"url": "http://secure.parking.ucf.edu/GarageCount/",
+
+		"location_ids__COMMENT__": "In locations.json, these are the IDs of each garage.",
+		"location_ids": {
+			"A": 147, "B": 89, "C": 83, "D": 97, "H": 151, "I": 78, "Libra": 160
+		}
+	},
+
+	"navigation": {
+		"locations_file__COMMENT__": "A JSON file of locations on campus. Link: http://map.ucf.edu/locations.json",
+		"locations_file": "resources/locations.json",
+
+		"map_link__COMMENT__": "A link to UCF's map on their website",
+		"map_link": "http://map.ucf.edu/"
+	}
+}
