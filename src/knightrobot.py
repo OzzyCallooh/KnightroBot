@@ -28,6 +28,11 @@ def command_help(bot, update):
 def command_about(bot, update):
 	update.message.reply_text(config['knightro']['about'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
+@logged_command
+@send_action(ChatAction.TYPING)
+def command_alert(bot, update):
+	update.message.reply_text(config['knightro']['alert'], parse_mode='MARKDOWN', disable_web_page_preview=True)
+
 def handle_error(bot, update, tg_error):
 	update.message.reply_text(config['knightro']['errormsg'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
@@ -40,6 +45,7 @@ def main():
 		'knightro',
 		'knightro.start',
 		'knightro.help',
+		'knightro.alert',
 		'knightro.about'
 	])
 
@@ -60,6 +66,7 @@ def main():
 	dispatcher.add_handler(CommandHandler('start', command_start))
 	dispatcher.add_handler(CommandHandler('about', command_about))
 	dispatcher.add_handler(CommandHandler('help', command_help))
+	dispatcher.add_handler(CommandHandler('alert', command_alert))
 	dispatcher.add_handler(CommandHandler('garage', command_garage, pass_args=True))
 	dispatcher.add_handler(CommandHandler('whereis', command_whereis, pass_args=True))
 	dispatcher.add_error_handler(handle_error)

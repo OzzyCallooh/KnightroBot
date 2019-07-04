@@ -53,6 +53,9 @@
 		"about__COMMENT__": "Output text from /about command",
 		"about": "I am a Telegram bot made by @OzzyC for the [UCF Furs](http://ucffurs.org) group. Not associated with UCF. [More info](https://git.io/vheb8)",
 
+		"alert__COMMENT__": "Output text from /alert command",
+		"alert": "[Go here to view active UCF Alerts](https://ucf.edu/alert/)",
+
 		"help__COMMENT__": "Output text from /help command",
 		"help": "Here's what I can do:\n/whereis <loc> - Search campus for a location\n/garage - How full are the garages now?"
 	},
