@@ -44,6 +44,9 @@
 	},
 
 	"knightro": {
+		"errormsg__COMMENT__": "Generic message to show when a TelegramError is raised",
+		"errormsg": "Whoops, an error occured while processing this. Try again in a little bit.",
+
 		"start__COMMENT__": "Output text from /start command",
 		"start": "What's up? I'm Knightro!",
 

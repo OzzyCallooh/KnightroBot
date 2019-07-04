@@ -28,6 +28,8 @@ def command_help(bot, update):
 def command_about(bot, update):
 	update.message.reply_text(config['knightro']['about'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
+def handle_error(bot, update, tg_error):
+	update.message.reply_text(config['knightro']['errormsg'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
 def main():
 	verify_config([
@@ -60,6 +62,7 @@ def main():
 	dispatcher.add_handler(CommandHandler('help', command_help))
 	dispatcher.add_handler(CommandHandler('garage', command_garage, pass_args=True))
 	dispatcher.add_handler(CommandHandler('whereis', command_whereis, pass_args=True))
+	dispatcher.add_error_handler(handle_error)
 
 	# Start
 	if config['telegram']['use_webhook']:
