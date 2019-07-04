@@ -35,11 +35,6 @@ def command_about(bot, update):
 def command_kill(bot, update):
 	update.message.reply_text(config['knightro']['kill'], parse_mode='MARKDOWN', disable_web_page_preview=True)	
 
-def handler_button(bot, update):
-	pass
-	#rsvp.handler_button(bot, update)
-	#polls.handler_button(bot, update)
-
 def main():
 	verify_config([
 		'logging',
@@ -74,15 +69,9 @@ def main():
 	dispatcher.add_handler(CommandHandler('kill', command_kill))
 	dispatcher.add_handler(CommandHandler('garage', command_garage, pass_args=True))
 	dispatcher.add_handler(CommandHandler('whereis', command_whereis, pass_args=True))
-	dispatcher.add_handler(CallbackQueryHandler(handler_button))
 
-	# Module dispatcher command setup 
-	#rsvp.init_db()
-	#rsvp.setup_dispatcher(dispatcher)
-	#polls.setup_dispatcher(dispatcher)
 	# Start
 	logging.debug('Go knights!')
-
 	if config['telegram']['use_webhook']:
 		verify_config([
 			'telegram.webhook',
