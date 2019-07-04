@@ -8,7 +8,7 @@ from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Ca
 import database
 from config import config, verify_config
 from parking import command_garage
-from navigation import command_whereis
+from navigation import load_locations, command_whereis
 from privileges import privileged_command
 
 def command_start(bot, update):
@@ -42,6 +42,14 @@ def main():
 		'knightro.kill'
 	])
 
+	# Logging
+	logging.basicConfig(
+		format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+		level=config['logging']['level']
+	)
+
+	# Initializations
+	load_locations()
 	database.init()
 
 	# Create the updater and get the dispatcher
@@ -61,13 +69,6 @@ def main():
 	#rsvp.init_db()
 	#rsvp.setup_dispatcher(dispatcher)
 	#polls.setup_dispatcher(dispatcher)
-
-	# Logs
-	logging.basicConfig(
-		format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-		level=config['logging']['level']
-	)
-
 	# Start
 	logging.debug('Go knights!')
 
@@ -96,3 +97,6 @@ def main():
 	updater.idle()
 
 	logging.debug('Charge on!')
+
+if __name__ == '__main__':
+	main()

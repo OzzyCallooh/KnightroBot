@@ -1,4 +1,5 @@
 import json
+import logging
 
 from config import config, verify_config
 from util import get_relative_filename
@@ -12,9 +13,6 @@ verify_config([
 LOCATIONS_FILENAME = config['navigation']['locations_file']
 
 locations = []
-loc_data = None
-with open(get_relative_filename(LOCATIONS_FILENAME)) as f:
-	loc_data = json.loads(f.read())
 
 class Location:
 	@staticmethod
@@ -99,9 +97,13 @@ class Location:
 		self.profile_link = raw_data.get('profile_link')
 
 
-for raw_data in loc_data:
-	locations.append(Location(raw_data))
-print('Loaded {} locations'.format(len(locations)))
+def load_locations():
+	loc_data = None
+	with open(get_relative_filename(LOCATIONS_FILENAME)) as f:
+		loc_data = json.loads(f.read())
+	for raw_data in loc_data:
+		locations.append(Location(raw_data))
+	logging.info('Loaded {} locations'.format(len(locations)))
 
 def command_whereis(bot, update, args=None):
 	#print('/whereis')
