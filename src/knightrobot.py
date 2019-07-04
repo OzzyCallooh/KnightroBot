@@ -69,11 +69,30 @@ def main():
 	)
 
 	# Start
-	print('Go Knights!')
-	try:
+	logging.debug('Go knights!')
+
+	if config['telegram']['use_webhook']:
+		verify_config([
+			'telegram.webhook',
+			'telegram.webhook.host',
+			'telegram.webhook.internal_port',
+			'telegram.webhook.cert',
+			'telegram.webhook.key'
+		])
+		logging.debug('Using webhook')
+		updater.start_webhook(
+			listen='127.0.0.1',
+			port=config['telegram']['webhook']['internal_port'],
+			url_path=config['telegram']['token']
+		)
+		updater.bot.set_webhook(
+			url='https://' + config['telegram']['webhook']['host'] + \
+			    '/' + config['telegram']['token'],
+			certificate=open(config['telegram']['webhook']['cert'], 'rb')
+		)
+	else:
+		logging.debug('Start polling')
 		updater.start_polling()
-		updater.idle()
-	except KeyboardInterrupt:
-		print('Keyboard interrupted')
-	finally:
-		print('Charge On!')
+	updater.idle()
+
+	logging.debug('Charge on!')

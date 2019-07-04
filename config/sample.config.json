@@ -14,7 +14,15 @@
 		"username__COMMENT__": "Not used",
 		"username": "BabyKnightroBot",
 		"token__COMMENT__": "The Telegram bot token from the BotFather",
-		"token": ""
+		"token": "",
+		"use_webhook__COMMENT__": "Use webhooks or poll for updates using /getUpdates?",
+		"use_webhook": false,
+		"webhook": {
+			"host": "knightrobot.website.com",
+			"internal_port": 443,
+			"key": "/etc/nginx/Telegram/private.key",
+			"cert": "/etc/nginx/Telegram/cert.pem"
+		}
 	},
 
 	"privileges__COMMENT__": "A mapping of user privileges via user id. @userinfobot can tell you user IDs.",
