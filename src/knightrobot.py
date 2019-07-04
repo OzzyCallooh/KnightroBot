@@ -28,11 +28,6 @@ def command_help(bot, update):
 def command_about(bot, update):
 	update.message.reply_text(config['knightro']['about'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
-@logged_command
-@send_action(ChatAction.TYPING)
-@privileged_command('operator')
-def command_kill(bot, update):
-	update.message.reply_text(config['knightro']['kill'], parse_mode='MARKDOWN', disable_web_page_preview=True)	
 
 def main():
 	verify_config([
@@ -43,8 +38,7 @@ def main():
 		'knightro',
 		'knightro.start',
 		'knightro.help',
-		'knightro.about',
-		'knightro.kill'
+		'knightro.about'
 	])
 
 	# Logging
@@ -64,7 +58,6 @@ def main():
 	dispatcher.add_handler(CommandHandler('start', command_start))
 	dispatcher.add_handler(CommandHandler('about', command_about))
 	dispatcher.add_handler(CommandHandler('help', command_help))
-	dispatcher.add_handler(CommandHandler('kill', command_kill))
 	dispatcher.add_handler(CommandHandler('garage', command_garage, pass_args=True))
 	dispatcher.add_handler(CommandHandler('whereis', command_whereis, pass_args=True))
 
