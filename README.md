@@ -19,7 +19,6 @@
 
 KnightroBot is programmed in Python 3. He uses the following dependencies, which can be installed using `pip`.
 
-* [Fasteners](https://fasteners.readthedocs.io) - `fasteners`
 * [Requests](http://docs.python-requests.org) - `requests`
 * [Python Telegram Bot](http://python-telegram-bot.org) - `python-telegram-bot`
 * [SQLAlchemy](http://sqlalchemy.org) - `sqlalchemy`
@@ -30,8 +29,10 @@ KnightroBot uses [JSON](http://json.org) configuration files, usually with a nam
 
 ## Running the Bot
 
-KnightroBot uses the [Fasteners](https://fasteners.readthedocs.io) library to prevent multiple copies of itself from running at once. Run the bot using Python 3 via the command line:
+Run the bot using Python 3 and provide a JSON configuration file as the first argument.
 
 ```shell
 python startup.py dev.config.json
 ```
+
+Previously, KnightroBot used the [Fasteners](https://fasteners.readthedocs.io) library and an intermediate startup script to prevent multiple copies of itself from running at once.
