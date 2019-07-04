@@ -4,11 +4,13 @@ import requests
 from operator import attrgetter
 
 from config import config, verify_config
+from mwt import MWT
 
 verify_config([
 	'parking',
 	'parking.url',
 	'parking.location_ids',
+	'parking.cache_time',
 	'navigation.map_link'
 ])
 
@@ -71,6 +73,7 @@ class CapacityReport():
 		return s
 
 	@classmethod
+	@MWT(config['parking']['cache_time'])
 	def fetch(cls):
 		try:
 			resp = requests.get(PARKING_URL, timeout=5)

@@ -70,7 +70,9 @@
 		"location_ids__COMMENT__": "In locations.json, these are the IDs of each garage.",
 		"location_ids": {
 			"A": 147, "B": 89, "C": 83, "D": 97, "H": 151, "I": 78, "Libra": 160
-		}
+		},
+		"cache_time__COMMENT__": "For how long should garage capacity reports be remembered before making a new request?",
+		"cache_time": 60
 	},
 
 	"navigation": {
