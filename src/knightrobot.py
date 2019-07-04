@@ -69,7 +69,6 @@ def main():
 	dispatcher.add_handler(CommandHandler('whereis', command_whereis, pass_args=True))
 
 	# Start
-	logging.debug('Go knights!')
 	if config['telegram']['use_webhook']:
 		verify_config([
 			'telegram.webhook',
@@ -78,7 +77,7 @@ def main():
 			'telegram.webhook.cert',
 			'telegram.webhook.key'
 		])
-		logging.debug('Using webhook')
+		logging.info('Using webhook')
 		updater.start_webhook(
 			listen='127.0.0.1',
 			port=config['telegram']['webhook']['internal_port'],
@@ -90,11 +89,11 @@ def main():
 			certificate=open(config['telegram']['webhook']['cert'], 'rb')
 		)
 	else:
-		logging.debug('Start polling')
+		logging.info('Start polling')
 		updater.start_polling()
+	logging.info('Updater idling')
 	updater.idle()
-
-	logging.debug('Charge on!')
+	logging.info('Exiting')
 
 if __name__ == '__main__':
 	main()
