@@ -21,7 +21,6 @@ KnightroBot is programmed in Python 3. He uses the following dependencies, which
 
 * [Requests](http://docs.python-requests.org) - `requests`
 * [Python Telegram Bot](http://python-telegram-bot.org) - `python-telegram-bot`
-* [SQLAlchemy](http://sqlalchemy.org) - `sqlalchemy`
 
 ## Configuration
 

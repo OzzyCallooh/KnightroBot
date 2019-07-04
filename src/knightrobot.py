@@ -7,7 +7,6 @@ from math import floor
 from telegram import ChatAction
 from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, CallbackQueryHandler
 
-import database
 from config import config, verify_config
 from parking import command_garage
 from navigation import load_locations, command_whereis
@@ -56,7 +55,6 @@ def main():
 
 	# Initializations
 	load_locations()
-	database.init()
 
 	# Create the updater and get the dispatcher
 	updater = Updater(token=config['telegram']['token'])
