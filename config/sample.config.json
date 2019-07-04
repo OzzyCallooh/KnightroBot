@@ -34,15 +34,7 @@
 			"owner": true
 		}
 	},
-
-	"database": {
-		"uri__COMMENT__": "The database URI to use with SQLAlchemy",
-		"uri": "sqlite:///test.db",
-
-		"trackModifications__COMMENT__": "Whether SQLAlchemy is instructed to track modifications.",
-		"trackModifications": "false"
-	},
-
+	
 	"knightro": {
 		"welcome__COMMENT__": "Output text when a new member joins a group.",
 		"welcome": "Welcome to the UCF Furs! Feel free to introduce yourself, such as your name, major and/or class year :)",
