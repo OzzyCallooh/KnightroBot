@@ -31,7 +31,8 @@ def handler_button(bot, update):
 
 def main():
 	verify_config([
-		'debug_mode',
+		'logging',
+		'logging.level',
 		'telegram',
 		'telegram.token',
 		'knightro',
@@ -64,7 +65,7 @@ def main():
 	# Logs
 	logging.basicConfig(
 		format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-		level=logging.DEBUG if config['debug_mode'] else logging.INFO
+		level=config['logging']['level']
 	)
 
 	# Start

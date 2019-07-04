@@ -5,6 +5,11 @@
 	"lock_file__COMMENT__": "An interprocess lock file to prevent multiple copies of the bot from running.",
 	"lock_file": "KnightroBot.lock",
 
+	"logging": {
+		"level_COMMENT__": "https://docs.python.org/3/library/logging.html#logging-levels",
+		"level": "INFO"
+	},
+
 	"telegram": {
 		"username__COMMENT__": "Not used",
 		"username": "BabyKnightroBot",
