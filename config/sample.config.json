@@ -62,7 +62,7 @@
 
 	"navigation": {
 		"locations_file__COMMENT__": "A JSON file of locations on campus. Link: http://map.ucf.edu/locations.json",
-		"locations_file": "resources/locations.json",
+		"locations_file": "../resources/locations.json",
 
 		"map_link__COMMENT__": "A link to UCF's map on their website",
 		"map_link": "http://map.ucf.edu/"
