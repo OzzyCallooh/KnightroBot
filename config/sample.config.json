@@ -44,6 +44,9 @@
 	},
 
 	"knightro": {
+		"welcome__COMMENT__": "Output text when a new member joins a group.",
+		"welcome": "Welcome to the UCF Furs! Feel free to introduce yourself, such as your name, major and/or class year :)",
+
 		"errormsg__COMMENT__": "Generic message to show when a TelegramError is raised",
 		"errormsg": "Whoops, an error occured while processing this. Try again in a little bit.",
 

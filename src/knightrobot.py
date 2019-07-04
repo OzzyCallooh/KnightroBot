@@ -5,7 +5,8 @@ import logging
 from math import floor
 
 from telegram import ChatAction
-from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, CallbackQueryHandler
+from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler
+from telegram.ext.filters import Filters
 
 from config import config, verify_config
 from parking import command_garage
@@ -33,6 +34,23 @@ def command_about(bot, update):
 def command_alert(bot, update):
 	update.message.reply_text(config['knightro']['alert'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
+def handle_new_chat_member(bot, update):
+	if len(update.message.new_chat_members) <= 0:
+		return
+
+	# Ignore bot additions
+	has_non_bot = False
+	for user in update.message.new_chat_members:
+		if user.is_bot and user.id == bot.id:
+			pass
+		if not user.is_bot:
+			has_non_bot = True
+			break
+	if not has_non_bot:
+		return
+
+	update.message.reply_text(config['knightro']['welcome'], parse_mode='MARKDOWN', disable_web_page_preview=True)
+
 def handle_error(bot, update, tg_error):
 	update.message.reply_text(config['knightro']['errormsg'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
@@ -43,6 +61,7 @@ def main():
 		'telegram',
 		'telegram.token',
 		'knightro',
+		'knightro.welcome',
 		'knightro.start',
 		'knightro.help',
 		'knightro.alert',
@@ -69,6 +88,10 @@ def main():
 	dispatcher.add_handler(CommandHandler('alert', command_alert))
 	dispatcher.add_handler(CommandHandler('garage', command_garage, pass_args=True))
 	dispatcher.add_handler(CommandHandler('whereis', command_whereis, pass_args=True))
+	dispatcher.add_handler(MessageHandler(
+		callback=handle_new_chat_member,
+		filters=Filters.status_update.new_chat_members
+	))
 	dispatcher.add_error_handler(handle_error)
 
 	# Start
