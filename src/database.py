@@ -1,6 +1,7 @@
 from config import config, verify_config
 
 import sys
+import logging
 
 import sqlalchemy
 from sqlalchemy import Column, DateTime, String, BigInteger, Integer, ForeignKey, func
@@ -28,7 +29,7 @@ dbsession = sessionmaker(bind=engine)
 def init():
 	try:
 		Base.metadata.create_all(engine)
-		print("Database initialized")
+		logging.info("Database initialized")
 	except sqlalchemy.exc.OperationalError as e:
-		print('Problem while connecting to database:\n{}'.format(str(e)))
+		logging.error('Problem while connecting to database:\n{}'.format(str(e)))
 		sys.exit(1)
