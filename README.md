@@ -11,9 +11,12 @@
 * **/start** - Shows welcome message
 * **/help** - Displays available commands
 * **/about** - Displays about information
+* **/alert** - Displays link to [UCF Alerts](https://ucf.edu/alerts/)
 * **/garage** - Get the current status of each garage on campus
 * **/garage &lt;letter&gt;** - Get the current status of a specific garage
 * **/whereis &lt;location&gt;** - Search the campus directory for &lt;location&gt;
+
+The bot will also welcome new chat members with a friendly message!
 
 ## Dependencies
 
@@ -31,7 +34,7 @@ KnightroBot uses [JSON](http://json.org) configuration files, usually with a nam
 Run the bot using Python 3 and provide a JSON configuration file as the first argument.
 
 ```shell
-python startup.py dev.config.json
+python src/knightrobot.py config.json
 ```
 
 Previously, KnightroBot used the [Fasteners](https://fasteners.readthedocs.io) library and an intermediate startup script to prevent multiple copies of itself from running at once.
