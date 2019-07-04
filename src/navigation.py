@@ -1,9 +1,11 @@
 import json
 import logging
 
+from telegram import ChatAction
+
 from config import config, verify_config
 from util import get_relative_filename
-from util import logged_command
+from util import send_action, logged_command
 
 verify_config([
 	'navigation',
@@ -107,6 +109,7 @@ def load_locations():
 	logging.info('Loaded {} locations'.format(len(locations)))
 
 @logged_command
+@send_action(ChatAction.FIND_LOCATION)
 def command_whereis(bot, update, args=None):
 	#print('/whereis')
 	if len(args) < 1:

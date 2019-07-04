@@ -3,6 +3,8 @@
 
 import logging
 from math import floor
+
+from telegram import ChatAction
 from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, CallbackQueryHandler
 
 import database
@@ -10,21 +12,25 @@ from config import config, verify_config
 from parking import command_garage
 from navigation import load_locations, command_whereis
 from privileges import privileged_command
-from util import logged_command
+from util import logged_command, send_action
 
 @logged_command
+@send_action(ChatAction.TYPING)
 def command_start(bot, update):
 	update.message.reply_text(config['knightro']['start'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
 @logged_command
+@send_action(ChatAction.TYPING)
 def command_help(bot, update):
 	update.message.reply_text(config['knightro']['help'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
 @logged_command
+@send_action(ChatAction.TYPING)
 def command_about(bot, update):
 	update.message.reply_text(config['knightro']['about'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
 @logged_command
+@send_action(ChatAction.TYPING)
 @privileged_command('operator')
 def command_kill(bot, update):
 	update.message.reply_text(config['knightro']['kill'], parse_mode='MARKDOWN', disable_web_page_preview=True)	

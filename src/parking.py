@@ -3,8 +3,10 @@ import re
 import requests
 from operator import attrgetter
 
+from telegram import ChatAction
+
 from config import config, verify_config
-from util import logged_command
+from util import send_action, logged_command
 from mwt import MWT
 
 verify_config([
@@ -84,6 +86,7 @@ class CapacityReport():
 			return None
 
 @logged_command
+@send_action(ChatAction.TYPING)
 def command_garage(bot, update, args=None):
 	report = CapacityReport.fetch()
 	if report:

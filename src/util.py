@@ -17,5 +17,17 @@ def logged_command(func):
 		return func(bot, update, *args, **kwargs)
 	return wrapped
 
+def send_action(action):
+	def deco(func):
+		@wraps(func)
+		def wrapper(bot, update, *args, **kwargs):
+			bot.send_chat_action(
+				chat_id=update.effective_message.chat_id,
+				action=action
+			)
+			return func(bot, update, *args, **kwargs)
+		return wrapper
+	return deco
+
 def get_relative_filename(filename):
 	return os.path.join(os.path.dirname(__file__), filename)
