@@ -4,6 +4,7 @@ import requests
 from operator import attrgetter
 
 from config import config, verify_config
+from util import logged_command
 from mwt import MWT
 
 verify_config([
@@ -82,7 +83,7 @@ class CapacityReport():
 		except Exception:
 			return None
 
-
+@logged_command
 def command_garage(bot, update, args=None):
 	report = CapacityReport.fetch()
 	if report:

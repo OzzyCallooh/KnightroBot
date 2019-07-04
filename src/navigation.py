@@ -3,6 +3,7 @@ import logging
 
 from config import config, verify_config
 from util import get_relative_filename
+from util import logged_command
 
 verify_config([
 	'navigation',
@@ -105,6 +106,7 @@ def load_locations():
 		locations.append(Location(raw_data))
 	logging.info('Loaded {} locations'.format(len(locations)))
 
+@logged_command
 def command_whereis(bot, update, args=None):
 	#print('/whereis')
 	if len(args) < 1:

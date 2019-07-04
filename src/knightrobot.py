@@ -10,16 +10,21 @@ from config import config, verify_config
 from parking import command_garage
 from navigation import load_locations, command_whereis
 from privileges import privileged_command
+from util import logged_command
 
+@logged_command
 def command_start(bot, update):
 	update.message.reply_text(config['knightro']['start'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
+@logged_command
 def command_help(bot, update):
 	update.message.reply_text(config['knightro']['help'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
+@logged_command
 def command_about(bot, update):
 	update.message.reply_text(config['knightro']['about'], parse_mode='MARKDOWN', disable_web_page_preview=True)
 
+@logged_command
 @privileged_command('operator')
 def command_kill(bot, update):
 	update.message.reply_text(config['knightro']['kill'], parse_mode='MARKDOWN', disable_web_page_preview=True)	
